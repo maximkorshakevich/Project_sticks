@@ -1,3 +1,4 @@
+import random
 def human_turn(sticks_left):
     while True:
         try:
@@ -8,3 +9,11 @@ def human_turn(sticks_left):
                 print("Ошибк! Можно взять от 1 до 3 спичек")
             except ValueError:
                 print("Ошибка, введите целое число")
+
+def computer_turn(sticks_left):
+    if sticks_left >=4 and sticks_left%4!=0:
+        comp_take=sticks_left%4
+    else:
+        comp_take=random.randint(1, min(3, sticks_left))
+    print(f"Компьютер берет {comp_take} спичек")
+    return comp_take
